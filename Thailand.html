@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Thailand Itinerary — Trips Banado</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --primary:#1565C0;--primary-dark:#0D47A1;--primary-light:#E3F2FD;
+  --gold:#E8920A;--navy:#0B2151;--cream:#F7F9FC;--white:#fff;
+  --text:#111827;--muted:#6b7280;--border:#e5e7eb;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--text);min-height:100vh}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 50%,#1976D2 100%);padding:48px 20px 56px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:50px;background:var(--cream);clip-path:polygon(0 100%,100% 0,100% 100%)}
+.hero-pattern{position:absolute;inset:0;opacity:0.06;background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%);background-size:20px 20px}
+.hero-inner{max-width:800px;margin:0 auto;position:relative;text-align:center}
+.brand{display:inline-flex;align-items:center;gap:10px;margin-bottom:24px;background:rgba(255,255,255,0.1);padding:8px 20px;border-radius:50px;border:1px solid rgba(255,255,255,0.2)}
+.brand-icon{font-size:18px}
+.brand-name{font-family:'Cormorant Garamond',serif;color:#fff;font-size:18px;font-weight:700}
+.brand-name span{color:#FDD835}
+.dest-flag{font-size:64px;display:block;margin-bottom:12px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.3))}
+.hero h1{font-family:'Cormorant Garamond',serif;color:#fff;font-size:clamp(42px,8vw,72px);font-weight:700;line-height:1;margin-bottom:12px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#fff;font-size:13px;font-weight:600;padding:7px 20px;border-radius:50px;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;box-shadow:0 4px 16px rgba(232,146,10,0.4)}
+.hero-desc{color:rgba(255,255,255,0.8);font-size:16px;max-width:480px;margin:0 auto;line-height:1.7}
+
+/* HIGHLIGHTS */
+.highlights{max-width:800px;margin:0 auto;padding:36px 20px 16px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.highlight-card{background:var(--white);border-radius:14px;padding:16px;text-align:center;border:1px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,0.05)}
+.highlight-icon{font-size:28px;margin-bottom:6px;display:block}
+.highlight-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-weight:500}
+.highlight-value{font-size:15px;font-weight:700;color:var(--primary-dark);margin-top:2px}
+
+/* SECTION TITLE */
+.section-title{max-width:800px;margin:0 auto;padding:24px 20px 4px;display:flex;align-items:center;gap:12px}
+.section-title h2{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--navy)}
+.section-title-line{flex:1;height:1px;background:var(--border)}
+
+/* DAYS */
+.days-container{max-width:800px;margin:0 auto;padding:12px 20px 48px;display:flex;flex-direction:column;gap:14px}
+.day-card{background:var(--white);border-radius:18px;overflow:hidden;border:1px solid var(--border);box-shadow:0 2px 10px rgba(0,0,0,0.05);display:flex}
+.day-sidebar{background:var(--primary);min-width:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 12px;gap:4px}
+.day-num-label{color:rgba(255,255,255,0.6);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px}
+.day-num{color:#fff;font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;line-height:1}
+.day-content{padding:20px 24px;flex:1}
+.day-title{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:12px;line-height:1.3}
+.activity-list{list-style:none;display:flex;flex-direction:column;gap:8px}.activity-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#374151;line-height:1.5}
+.activity-item{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#374151;line-height:1.5}
+.activity-dot{width:8px;height:8px;border-radius:50%;background:var(--primary);margin-top:6px;flex-shrink:0;display:inline-block}
+.activity-tag{display:inline-block;background:var(--primary-light);color:var(--primary-dark);font-size:11px;font-weight:600;padding:2px 8px;border-radius:50px;margin-left:6px}
+
+/* FOOTER */
+.footer{background:var(--navy);padding:32px 20px;text-align:center}
+.footer-brand{font-family:'Cormorant Garamond',serif;color:#fff;font-size:24px;font-weight:700;margin-bottom:6px}
+.footer-brand span{color:#FDD835}
+.footer-contact{color:rgba(255,255,255,0.65);font-size:13.5px;line-height:2}
+.footer-contact strong{color:var(--gold)}
+.footer-cta{display:inline-block;margin-top:16px;background:var(--gold);color:#fff;font-weight:700;font-size:14px;padding:12px 32px;border-radius:50px;text-decoration:none;letter-spacing:0.5px;box-shadow:0 4px 16px rgba(232,146,10,0.35)}
+
+@keyframes slideIn{from{opacity:0;transform:translateX(-16px)}to{opacity:1;transform:translateX(0)}}
+.day-card{animation:slideIn 0.4s ease both}
+.day-card:nth-child(1){animation-delay:.05s}.day-card:nth-child(2){animation-delay:.10s}
+.day-card:nth-child(3){animation-delay:.15s}.day-card:nth-child(4){animation-delay:.20s}
+.day-card:nth-child(5){animation-delay:.25s}.day-card:nth-child(6){animation-delay:.30s}
+
+@media(max-width:520px){
+  .highlights{grid-template-columns:repeat(3,1fr);gap:8px}
+  .highlight-card{padding:12px 8px}
+  .day-sidebar{min-width:64px;padding:14px 8px}
+  .day-num{font-size:30px}
+  .day-content{padding:16px}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-inner">
+    <div class="brand">
+      <span class="brand-icon">✈</span>
+      <span class="brand-name">Trips<span>Banado</span></span>
+    </div>
+    <span class="dest-flag">🇹🇭</span>
+    <h1>Thailand</h1>
+    <div class="hero-badge">✈ 5 Nights · 6 Days</div>
+    <p class="hero-desc">Vibrant culture, stunning temples and tropical paradise — from Phuket's buzzing beaches to Krabi's emerald waters.</p>
+  </div>
+</div>
+
+<div class="highlights">
+  <div class="highlight-card">
+    <span class="highlight-icon">🏝️</span>
+    <div class="highlight-label">Main Cities</div>
+    <div class="highlight-value">Phuket · Krabi</div>
+  </div>
+  <div class="highlight-card">
+    <span class="highlight-icon">🌊</span>
+    <div class="highlight-label">Highlight</div>
+    <div class="highlight-value">Island Hopping</div>
+  </div>
+  <div class="highlight-card">
+    <span class="highlight-icon">🛏️</span>
+    <div class="highlight-label">Duration</div>
+    <div class="highlight-value">5N / 6D</div>
+  </div>
+</div>
+
+<div class="section-title">
+  <h2>Your Day-by-Day Journey</h2>
+  <div class="section-title-line"></div>
+</div>
+
+<div class="days-container">
+
+  <div class="day-card">
+    <div class="day-sidebar">
+      <div class="day-num-label">Day</div>
+      <div class="day-num">1</div>
+    </div>
+    <div class="day-content">
+      <div class="day-title">Arrival in Phuket</div>
+      <ul class="activity-list">
+        <li><div class="activity-dot"></div><span>Airport pickup &amp; hotel check-in</span></li>
+        <li><div class="activity-dot"></div><span>Evening at leisure / Patong Beach</span></li>
+        <li><div class="activity-dot"></div><span>Optional: Phuket nightlife <span class="activity-tag">Optional</span></span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-sidebar">
+      <div class="day-num-label">Day</div>
+      <div class="day-num">2</div>
+    </div>
+    <div class="day-content">
+      <div class="day-title">Phi Phi Island Tour</div>
+      <ul class="activity-list">
+        <li><div class="activity-dot"></div><span>Speedboat tour to Phi Phi Islands</span></li>
+        <li><div class="activity-dot"></div><span>Maya Bay &amp; Viking Cave exploration</span></li>
+        <li><div class="activity-dot"></div><span>Snorkeling in crystal clear waters</span></li>
+        <li><div class="activity-dot"></div><span>Lunch included <span class="activity-tag">Included</span></span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-sidebar">
+      <div class="day-num-label">Day</div>
+      <div class="day-num">3</div>
+    </div>
+    <div class="day-content">
+      <div class="day-title">Phuket City Tour</div>
+      <ul class="activity-list">
+        <li><div class="activity-dot"></div><span>Big Buddha — iconic hilltop monument</span></li>
+        <li><div class="activity-dot"></div><span>Wat Chalong Temple</span></li>
+        <li><div class="activity-dot"></div><span>Old Phuket Town heritage walk</span></li>
+        <li><div class="activity-dot"></div><span>Evening free for shopping</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-sidebar">
+      <div class="day-num-label">Day</div>
+      <div class="day-num">4</div>
+    </div>
+    <div class="day-content">
+      <div class="day-title">Transfer to Krabi</div>
+      <ul class="activity-list">
+        <li><div class="activity-dot"></div><span>Road transfer to Krabi</span></li>
+        <li><div class="activity-dot"></div><span>Hotel check-in &amp; relax</span></li>
+        <li><div class="activity-dot"></div><span>Explore Ao Nang Beach at sunset</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-sidebar">
+      <div class="day-num-label">Day</div>
+      <div class="day-num">5</div>
+    </div>
+    <div class="day-content">
+      <div class="day-title">4 Island Tour</div>
+      <ul class="activity-list">
+        <li><div class="activity-dot"></div><span>Chicken Island &amp; Poda Island</span></li>
+        <li><div class="activity-dot"></div><span>Tup Island — walk between islands at low tide</span></li>
+        <li><div class="activity-dot"></div><span>Snorkeling &amp; beach time</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-sidebar">
+      <div class="day-num-label">Day</div>
+      <div class="day-num">6</div>
+    </div>
+    <div class="day-content">
+      <div class="day-title">Departure Day</div>
+      <ul class="activity-list">
+        <li><div class="activity-dot"></div><span>Hotel checkout</span></li>
+        <li><div class="activity-dot"></div><span>Airport transfer</span></li>
+        <li><div class="activity-dot"></div><span>Safe travels &amp; fond memories! 🙏</span></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-brand">Trips<span>Banado</span> — Tour &amp; Travels</div>
+  <div class="footer-contact">
+    <strong>📞 +91 92136 69196</strong><br>
+    ✉️ support4tripsbanado@gmail.com
+  </div>
+  <a class="footer-cta" href="tel:+919213669196">Book This Package</a>
+</footer>
+
+</body>
+</html>
